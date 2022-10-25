@@ -75,7 +75,7 @@ func main() {
 	joinFinished := time.Since(joinStart)
 
 	leaveStart := time.Now()
-	for i := nodesCount - 1; i > nodesCount/2; i-- {
+	for i := nodesCount - 1; i >= nodesCount/2; i-- {
 		_, err := http.Post("http://"+ipArray[i]+":"+port+"/leave", "text/plain", bytes.NewReader([]byte("")))
 		if err != nil {
 			log.Fatal("Error occured during node " + ipArray[i] + " leaving")
